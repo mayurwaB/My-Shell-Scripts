@@ -56,10 +56,7 @@ jobs:
       - print_pipeline_id
       - run:
           name: "Save Hello World to File"
-          command: "echo Hello World | tee -a output.txt"
-      - run:
-          name: "create an error"
-          command: "exit 1"    
+          command: "echo Hello World | tee -a output.txt"   
       - run:
           command: "cat my_dog 2> file"
           when: on_fail    
