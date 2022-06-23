@@ -58,7 +58,7 @@ jobs:
           name: "Save Hello World to File"
           command: "echo Hello World | tee -a output.txt"   
       - run:
-          command: "exit 1 2> sample_log"
+          command: "cat unknown_file 2> sample_log"
           when: on_fail    
       - persist_to_workspace:
           root: .
