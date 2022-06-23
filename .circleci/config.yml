@@ -28,7 +28,7 @@ jobs:
   print_hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    << *defaults
+    <<: *defaults
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -48,7 +48,7 @@ jobs:
           name: "Print World"
           command: "echo My name is $MY_NAME"
   save_hello_world_output:
-    << *defaults
+    <<: *defaults
       # Add steps to the job
       # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -62,7 +62,7 @@ jobs:
           paths:
             - output.txt     
   print_output_text:
-    << *defaults
+    <<: *defaults
       # Add steps to the job
       # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
