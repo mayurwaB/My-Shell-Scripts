@@ -10,8 +10,8 @@ commands:
         type: string
         default: $CIRCLE_WORKFLOW_ID
     steps:
-      -run:
-        command: "echo << parameters.to >>"    
+      - run:
+         command: "echo << parameters.to >>"    
 
 orbs:
   # Declare a dependency on the welcome-orb
