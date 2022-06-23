@@ -58,10 +58,12 @@ jobs:
           name: "Save Hello World to File"
           command: "echo Hello World | tee -a output.txt"   
       - run:
-          command: !
+          command: |
             "cat unknown_file"
-            "echo Error File not found >> log"
           when: on_fail    
+      - run:
+          command:
+            "echo Error File not found >> log"    
       - persist_to_workspace:
           root: .
           paths:
