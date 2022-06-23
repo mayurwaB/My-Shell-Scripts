@@ -58,13 +58,15 @@ jobs:
           name: "Save Hello World to File"
           command: "echo Hello World | tee -a output.txt"   
       - run:
-          command: "cat unknown_file 2> sample_log"
+          command: !
+            "cat unknown_file"
+            "echo Error File not found >> log"
           when: on_fail    
       - persist_to_workspace:
           root: .
           paths:
             - output.txt  
-            - sample_log   
+            - log   
   print_output_text:
     <<: *defaults
       # Add steps to the job
@@ -75,7 +77,7 @@ jobs:
           at: .
       - run:
           name: "Output to Screen"
-          command: "cat output.txt ; cat sample_log"
+          command: "cat output.txt ; cat log"
           
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
