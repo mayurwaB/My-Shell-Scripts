@@ -58,8 +58,7 @@ jobs:
           name: "Save Hello World to File"
           command: "echo Hello World | tee -a output.txt"   
       - run:
-          command: |
-            "cat unknown_file"
+          command: exit 1
           when: on_fail    
       - run:
           command:
