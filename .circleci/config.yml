@@ -58,8 +58,7 @@ jobs:
           command: exit 1      
       - run:
           command: |
-            echo Error File not found >> log  
-            echo Hello World >> tee -a output.txt
+            echo Error File not found >> log ; echo Hello World >> output.txt
           when: on_fail     
       - persist_to_workspace:
           root: .
